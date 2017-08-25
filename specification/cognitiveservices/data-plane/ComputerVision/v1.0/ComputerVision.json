@@ -9,7 +9,7 @@
   "hostTemplate": "{azureRegion}.api.cognitive.microsoft.com",
   "parameters": [
    {
-    "$ref": "#/parameters/AzureRegion"
+    "$ref": "../../Common/Parameters.json#/AzureRegion"
    }
   ]
  },
@@ -1327,26 +1327,6 @@
   }
  },
  "parameters": {
-  "AzureRegion": {
-   "name": "azureRegion",
-   "description": "Supported Azure regions for Computer Vision endpoints",
-   "x-ms-parameter-location": "client",
-   "required": true,
-   "type": "string",
-   "in": "path",
-   "x-ms-skip-url-encoding": true,
-   "x-ms-enum": {
-    "name": "AzureRegion",
-    "modelAsString": true
-   },
-   "enum": [
-    "westus",
-    "westeurope",
-    "southeastasia",
-    "eastus2",
-    "westcentralus"
-   ]
-  },
   "SubscriptionKey": {
    "name": "Ocp-Apim-Subscription-Key",
    "x-ms-client-name": "SubscriptionKey",
