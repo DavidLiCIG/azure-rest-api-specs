@@ -16,7 +16,7 @@ let configsToProcess = utils.getConfigFilesChangedInPR();
 let targetBranch = utils.getTargetBranch();
 let sourceBranch = utils.getSourceBranch();
 let pullRequestNumber = utils.getPullRequestNumber();
-let linterCmd = `autorest --validation --azure-validator --message-format=json `;
+let linterCmd = `npx autorest@2.0.4152 --validation --azure-validator --message-format=json `;
 let gitCheckoutCmd = `git checkout ${targetBranch}`;
 let gitLogCmd = `git log -3`;
 var filename = `${pullRequestNumber}_${utils.getTimeStamp()}.json`;
@@ -139,8 +139,9 @@ async function runScript() {
     for (const configFile of configsToProcess) {
         await runTools(configFile, 'after');
     }
-    execSync(`${gitCheckoutCmd}`, { encoding: 'utf8' });
-    execSync(`${gitLogCmd}`, { encoding: 'utf8' });
+
+    utils.checkoutTargetBranch();
+
     for (const configFile of configsToProcess) {
         await runTools(configFile, 'before');
     }

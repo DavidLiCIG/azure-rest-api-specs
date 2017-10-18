@@ -36,7 +36,7 @@
     }
   },
   "paths": {
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}": {
       "delete": {
         "tags": [
           "RouteTables"
@@ -76,7 +76,12 @@
             "description": "Accepted. If route table not found returned synchronously, otherwise if found returned asynchronously."
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "Delete route table": {
+            "$ref": "./examples/RouteTableDelete.json"
+          }
+        }
       },
       "get": {
         "tags": [
@@ -119,6 +124,11 @@
             "schema": {
               "$ref": "#/definitions/RouteTable"
             }
+          }
+        },
+        "x-ms-examples": {
+          "Get route table": {
+            "$ref": "./examples/RouteTableGet.json"
           }
         }
       },
@@ -173,6 +183,14 @@
             }
           }
         },
+        "x-ms-examples": {
+          "Create route table": {
+            "$ref": "./examples/RouteTableCreate.json"
+          },
+          "Create route table with route": {
+            "$ref": "./examples/RouteTableCreateWithRoute.json"
+          }
+        },
         "x-ms-long-running-operation": true
       }
     },
@@ -206,6 +224,11 @@
             }
           }
         },
+        "x-ms-examples": {
+          "List route tables in resource group": {
+            "$ref": "./examples/RouteTableList.json"
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -232,6 +255,11 @@
             "schema": {
               "$ref": "#/definitions/RouteTableListResult"
             }
+          }
+        },
+        "x-ms-examples": {
+          "List all route tables": {
+            "$ref": "./examples/RouteTableListAll.json"
           }
         },
         "x-ms-pageable": {
@@ -286,6 +314,11 @@
             "description": "Route was deleted or not found."
           }
         },
+        "x-ms-examples": {
+          "Delete route": {
+            "$ref": "./examples/RouteTableRouteDelete.json"
+          }
+        },
         "x-ms-long-running-operation": true
       },
       "get": {
@@ -329,6 +362,11 @@
             "schema": {
               "$ref": "#/definitions/Route"
             }
+          }
+        },
+        "x-ms-examples": {
+          "Get route": {
+            "$ref": "./examples/RouteTableRouteGet.json"
           }
         }
       },
@@ -390,6 +428,11 @@
             }
           }
         },
+        "x-ms-examples": {
+          "Create route": {
+            "$ref": "./examples/RouteTableRouteCreate.json"
+          }
+        },
         "x-ms-long-running-operation": true
       }
     },
@@ -432,9 +475,14 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "List routes": {
+            "$ref": "./examples/RouteTableRouteList.json"
+          }
         }
       }
-    }    
+    }
   },
   "definitions": {
     "RoutePropertiesFormat": {
@@ -472,11 +520,12 @@
       ],
       "description": "Route resource"
     },
-	"Route": {
+    "Route": {
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/RoutePropertiesFormat"
+          "$ref": "#/definitions/RoutePropertiesFormat",
+          "description": "Properties of the route."
         },
         "name": {
           "type": "string",
@@ -522,7 +571,8 @@
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/RouteTablePropertiesFormat"
+          "$ref": "#/definitions/RouteTablePropertiesFormat",
+          "description": "Properties of the route table."
         },
         "etag": {
           "type": "string",

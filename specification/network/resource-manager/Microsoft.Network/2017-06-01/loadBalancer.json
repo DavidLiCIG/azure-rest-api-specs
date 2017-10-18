@@ -76,6 +76,11 @@
             "description": "Delete successful."
           }
         },
+        "x-ms-examples": {
+          "Delete load balancer": {
+            "$ref": "./examples/LoadBalancerDelete.json"
+          }
+        },
         "x-ms-long-running-operation": true
       },
       "get": {
@@ -119,6 +124,11 @@
             "schema": {
               "$ref": "#/definitions/LoadBalancer"
             }
+          }
+        },
+        "x-ms-examples": {
+          "Get load balancer": {
+            "$ref": "./examples/LoadBalancerGet.json"
           }
         }
       },
@@ -173,6 +183,11 @@
             }
           }
         },
+        "x-ms-examples": {
+          "Create load balancer": {
+            "$ref": "./examples/LoadBalancerCreate.json"
+          }
+        },
         "x-ms-long-running-operation": true
       }
     },
@@ -197,6 +212,11 @@
             "schema": {
               "$ref": "#/definitions/LoadBalancerListResult"
             }
+          }
+        },
+        "x-ms-examples": {
+          "List all load balancers": {
+            "$ref": "./examples/LoadBalancerListAll.json"
           }
         },
         "x-ms-pageable": {
@@ -234,8 +254,209 @@
             }
           }
         },
+        "x-ms-examples": {
+          "List load balancers in resource group": {
+            "$ref": "./examples/LoadBalancerList.json"
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools": {
+      "get": {
+        "tags": [
+          "LoadBalancers"
+        ],
+        "operationId": "LoadBalancerBackendAddressPools_List",
+        "description": "Gets all the load balancer backed address pools.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the load balancer."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of LoadBalancer BackendAddressPool resources.",
+            "schema": {
+              "$ref": "#/definitions/LoadBalancerBackendAddressPoolListResult"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancerBackendAddressPoolList": {
+            "$ref": "./examples/LoadBalancerBackendAddressPoolList.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}": {
+      "get": {
+        "tags": [
+          "LoadBalancers"
+        ],
+        "operationId": "LoadBalancerBackendAddressPools_Get",
+        "description": "Gets load balancer backend address pool.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the load balancer."
+          },
+          {
+            "name": "backendAddressPoolName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the backend address pool."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns LoadBalancer BackendAddressPool resource.",
+            "schema": {
+              "$ref": "#/definitions/BackendAddressPool"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancerBackendAddressPoolGet": {
+            "$ref": "./examples/LoadBalancerBackendAddressPoolGet.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/frontendIPConfigurations": {
+      "get": {
+        "tags": [
+          "LoadBalancers"
+        ],
+        "operationId": "LoadBalancerFrontendIPConfigurations_List",
+        "description": "Gets all the load balancer frontend IP configurations.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the load balancer."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of LoadBalancer FrontendIPConfiguration resources.",
+            "schema": {
+              "$ref": "#/definitions/LoadBalancerFrontendIPConfigurationListResult"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancerFrontendIPConfigurationList": {
+            "$ref": "./examples/LoadBalancerFrontendIPConfigurationList.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/frontendIPConfigurations/{frontendIPConfigurationName}": {
+      "get": {
+        "tags": [
+          "LoadBalancers"
+        ],
+        "operationId": "LoadBalancerFrontendIPConfigurations_Get",
+        "description": "Gets load balancer frontend IP configuration.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the load balancer."
+          },
+          {
+            "name": "frontendIPConfigurationName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the frontend IP configuration."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns LoadBalancer FrontendIPConfiguration resource.",
+            "schema": {
+              "$ref": "#/definitions/FrontendIPConfiguration"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancerFrontendIPConfigurationGet": {
+            "$ref": "./examples/LoadBalancerFrontendIPConfigurationGet.json"
+          }
         }
       }
     },
@@ -280,7 +501,9 @@
           "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
-          "InboundNatRuleList": { "$ref": "./examples/InboundNatRuleList.json" }
+          "InboundNatRuleList": {
+            "$ref": "./examples/InboundNatRuleList.json"
+          }
         }
       }
     },
@@ -332,7 +555,9 @@
           }
         },
         "x-ms-examples": {
-          "InboundNatRuleDelete": { "$ref": "./examples/InboundNatRuleDelete.json" }
+          "InboundNatRuleDelete": {
+            "$ref": "./examples/InboundNatRuleDelete.json"
+          }
         },
         "x-ms-long-running-operation": true
       },
@@ -387,7 +612,9 @@
           }
         },
         "x-ms-examples": {
-          "InboundNatRuleGet": { "$ref": "./examples/InboundNatRuleGet.json" }
+          "InboundNatRuleGet": {
+            "$ref": "./examples/InboundNatRuleGet.json"
+          }
         }
       },
       "put": {
@@ -450,7 +677,255 @@
         },
         "x-ms-long-running-operation": true,
         "x-ms-examples": {
-          "InboundNatRuleCreate": { "$ref": "./examples/InboundNatRuleCreate.json" }
+          "InboundNatRuleCreate": {
+            "$ref": "./examples/InboundNatRuleCreate.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/loadBalancingRules": {
+      "get": {
+        "tags": [
+          "LoadBalancers"
+        ],
+        "operationId": "LoadBalancerLoadBalancingRules_List",
+        "description": "Gets all the load balancing rules in a load balancer.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the load balancer."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of LoadBalancer LoadBalancingRule resources.",
+            "schema": {
+              "$ref": "#/definitions/LoadBalancerLoadBalancingRuleListResult"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "LoadBalancerLoadBalancingRuleList": {
+            "$ref": "./examples/LoadBalancerLoadBalancingRuleList.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/loadBalancingRules/{loadBalancingRuleName}": {
+      "get": {
+        "tags": [
+          "LoadBalancers"
+        ],
+        "operationId": "LoadBalancerLoadBalancingRules_Get",
+        "description": "Gets the specified load balancer load balancing rule.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the load balancer."
+          },
+          {
+            "name": "loadBalancingRuleName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the load balancing rule."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns the resulting LoadBalancingRule resource.",
+            "schema": {
+              "$ref": "#/definitions/LoadBalancingRule"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancerLoadBalancingRuleGet": {
+            "$ref": "./examples/LoadBalancerLoadBalancingRuleGet.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/networkInterfaces": {
+      "get": {
+        "tags": [
+          "LoadBalancers"
+        ],
+        "operationId": "LoadBalancerNetworkInterfaces_List",
+        "description": "Gets associated load balancer network interfaces.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the load balancer."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of NetworkInterface resources.",
+            "schema": {
+              "$ref": "./networkInterface.json#/definitions/NetworkInterfaceListResult"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancerNetworkInterfaceListVmss": {
+            "$ref": "./examples/LoadBalancerNetworkInterfaceListVmss.json"
+          },
+          "LoadBalancerNetworkInterfaceListSimple": {
+            "$ref": "./examples/LoadBalancerNetworkInterfaceListSimple.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes": {
+      "get": {
+        "tags": [
+          "LoadBalancers"
+        ],
+        "operationId": "LoadBalancerProbes_List",
+        "description": "Gets all the load balancer probes.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the load balancer."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns a list of LoadBalancer Probe resources.",
+            "schema": {
+              "$ref": "#/definitions/LoadBalancerProbeListResult"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancerProbeList": {
+            "$ref": "./examples/LoadBalancerProbeList.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}": {
+      "get": {
+        "tags": [
+          "LoadBalancers"
+        ],
+        "operationId": "LoadBalancerProbes_Get",
+        "description": "Gets load balancer probe.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group."
+          },
+          {
+            "name": "loadBalancerName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the load balancer."
+          },
+          {
+            "name": "probeName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the probe."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request successful. The operation returns LoadBalancer Probe resource.",
+            "schema": {
+              "$ref": "#/definitions/Probe"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "LoadBalancerProbeGet": {
+            "$ref": "./examples/LoadBalancerProbeGet.json"
+          }
         }
       }
     }
@@ -525,7 +1000,8 @@
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/FrontendIPConfigurationPropertiesFormat"
+          "$ref": "#/definitions/FrontendIPConfigurationPropertiesFormat",
+          "description": "Properties of the load balancer probe."
         },
         "name": {
           "type": "string",
@@ -534,6 +1010,13 @@
         "etag": {
           "type": "string",
           "description": "A unique read-only string that changes whenever the resource is updated."
+        },
+        "zones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of availability zones denoting the IP allocated for the resource needs to come from."
         }
       },
       "allOf": [
@@ -577,7 +1060,8 @@
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/BackendAddressPoolPropertiesFormat"
+          "$ref": "#/definitions/BackendAddressPoolPropertiesFormat",
+          "description": "Properties of load balancer backend address pool."
         },
         "name": {
           "type": "string",
@@ -637,7 +1121,7 @@
         "frontendPort": {
           "type": "integer",
           "format": "int32",
-          "description": "The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534."
+          "description": "The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534."
         },
         "backendPort": {
           "type": "integer",
@@ -668,7 +1152,8 @@
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/LoadBalancingRulePropertiesFormat"
+          "$ref": "#/definitions/LoadBalancingRulePropertiesFormat",
+          "description": "Properties of load balancer load balancing rule."
         },
         "name": {
           "type": "string",
@@ -684,7 +1169,7 @@
           "$ref": "./network.json#/definitions/SubResource"
         }
       ],
-      "description": "A loag balancing rule for a load balancer."
+      "description": "A load balancing rule for a load balancer."
     },
     "ProbePropertiesFormat": {
       "properties": {
@@ -735,13 +1220,15 @@
       "required": [
         "protocol",
         "port"
-      ]
+      ],
+      "description": "Load balancer probe resource."
     },
     "Probe": {
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/ProbePropertiesFormat"
+          "$ref": "#/definitions/ProbePropertiesFormat",
+          "description": "Properties of load balancer probe."
         },
         "name": {
           "type": "string",
@@ -768,7 +1255,7 @@
         "backendIPConfiguration": {
           "readOnly": true,
           "$ref": "./networkInterface.json#/definitions/NetworkInterfaceIPConfiguration",
-          "description": "A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backed IP."
+          "description": "A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP."
         },
         "protocol": {
           "type": "string",
@@ -785,7 +1272,7 @@
         "frontendPort": {
           "type": "integer",
           "format": "int32",
-          "description": "The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534."
+          "description": "The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534."
         },
         "backendPort": {
           "type": "integer",
@@ -812,7 +1299,8 @@
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/InboundNatRulePropertiesFormat"
+          "$ref": "#/definitions/InboundNatRulePropertiesFormat",
+          "description": "Properties of load balancer inbound nat rule."
         },
         "name": {
           "type": "string",
@@ -880,7 +1368,8 @@
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/InboundNatPoolPropertiesFormat"
+          "$ref": "#/definitions/InboundNatPoolPropertiesFormat",
+          "description": "Properties of load balancer inbound nat pool."
         },
         "name": {
           "type": "string",
@@ -930,7 +1419,8 @@
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/OutboundNatRulePropertiesFormat"
+          "$ref": "#/definitions/OutboundNatRulePropertiesFormat",
+          "description": "Properties of load balancer outbound nat rule."
         },
         "name": {
           "type": "string",
@@ -1014,7 +1504,8 @@
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
-          "$ref": "#/definitions/LoadBalancerPropertiesFormat"
+          "$ref": "#/definitions/LoadBalancerPropertiesFormat",
+          "description": "Properties of load balancer."
         },
         "etag": {
           "type": "string",
@@ -1038,6 +1529,7 @@
           "description": "A list of load balancers in a resource group."
         },
         "nextLink": {
+          "readOnly": true,
           "type": "string",
           "description": "The URL to get the next set of results."
         }
@@ -1054,11 +1546,80 @@
           "description": "A list of inbound nat rules in a load balancer."
         },
         "nextLink": {
+          "readOnly": true,
           "type": "string",
           "description": "The URL to get the next set of results."
         }
       },
       "description": "Response for ListInboundNatRule API service call."
+    },
+    "LoadBalancerBackendAddressPoolListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BackendAddressPool"
+          },
+          "description": "A list of backend address pools in a load balancer."
+        },
+        "nextLink": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for ListBackendAddressPool API service call."
+    },
+    "LoadBalancerFrontendIPConfigurationListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FrontendIPConfiguration"
+          },
+          "description": "A list of frontend IP configurations in a load balancer."
+        },
+        "nextLink": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for ListFrontendIPConfiguration API service call."
+    },
+    "LoadBalancerLoadBalancingRuleListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LoadBalancingRule"
+          },
+          "description": "A list of load balancing rules in a load balancer."
+        },
+        "nextLink": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for ListLoadBalancingRule API service call."
+    },
+    "LoadBalancerProbeListResult": {
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Probe"
+          },
+          "description": "A list of probes in a load balancer."
+        },
+        "nextLink": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The URL to get the next set of results."
+        }
+      },
+      "description": "Response for ListProbe API service call."
     }
   },
   "parameters": {

@@ -20,13 +20,26 @@ To see additional help and options, run:
 ## Configuration
 
 
-
 ### Basic Information 
 These are the global settings for the TrafficManager API.
 
 ``` yaml
 openapi-type: arm
-tag: package-2017-05
+tag: package-2017-09-preview
+```
+
+### Tag: package-2017-09-preview
+
+These settings apply only when `--tag=package-2017-09-preview` is specified on the command line.
+
+``` yaml $(tag) == 'package-2017-09-preview'
+input-file:
+- Microsoft.Network/2017-05-01/trafficmanager.json
+- Microsoft.Network/2017-09-01-preview/trafficmanageranalytics.json
+
+# Needed when there is more than one input file
+override-info:
+  title: TrafficManagerManagementClient
 ```
 
 

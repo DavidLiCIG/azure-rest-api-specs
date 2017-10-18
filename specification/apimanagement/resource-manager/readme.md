@@ -50,6 +50,7 @@ input-file:
 - Microsoft.ApiManagement/2017-03-01/apimloggers.json
 - Microsoft.ApiManagement/2017-03-01/apimnetworkstatus.json
 - Microsoft.ApiManagement/2017-03-01/apimopenidconnectproviders.json
+- Microsoft.ApiManagement/2017-03-01/apimportalsettings.json
 - Microsoft.ApiManagement/2017-03-01/apimproducts.json
 - Microsoft.ApiManagement/2017-03-01/apimproperties.json
 - Microsoft.ApiManagement/2017-03-01/apimquotas.json
@@ -94,4 +95,22 @@ These settings apply only when `--tag=package-2016-07` is specified on the comma
 input-file:
 - Microsoft.ApiManagement/2016-07-07/apimanagement.json
 - Microsoft.ApiManagement/2016-07-07/apimdeployment.json
+```
+
+---
+# Code Generation
+
+
+## C# 
+
+These settings apply only when `--csharp` is specified on the command line.
+Please also specify `--csharp-sdks-folder=<path to "SDKs" directory of your azure-sdk-for-net clone>`.
+
+``` yaml $(csharp)
+csharp:
+  azure-arm: true
+  license-header: MICROSOFT_MIT_NO_VERSION
+  namespace: Microsoft.Azure.Management.ApiManagement  
+  output-folder: $(csharp-sdks-folder)/ApiManagement/Management.ApiManagement/Generated
+  clear-output-folder: true
 ```

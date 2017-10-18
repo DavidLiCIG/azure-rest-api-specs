@@ -1,5 +1,5 @@
 # DNS
-    
+
 > see https://aka.ms/autorest
 
 This is the AutoRest configuration file for DNS.
@@ -7,7 +7,7 @@ This is the AutoRest configuration file for DNS.
 
 
 ---
-## Getting Started 
+## Getting Started
 To build the SDK for DNS, simply [Install AutoRest](https://aka.ms/autorest/install) and in this folder, run:
 
 > `autorest`
@@ -21,14 +21,22 @@ To see additional help and options, run:
 
 
 
-### Basic Information 
+### Basic Information
 These are the global settings for the DNS API.
 
 ``` yaml
 openapi-type: arm
-tag: package-2016-04
+tag: package-2017-09
 ```
 
+### Tag: package-2017-09
+
+These settings apply only when `--tag=package-2017-09` is specified on the command line.
+
+``` yaml $(tag) == 'package-2017-09'
+input-file:
+- Microsoft.Network/2017-09-01/dns.json
+```
 
 ### Tag: package-2016-04
 
@@ -38,7 +46,7 @@ These settings apply only when `--tag=package-2016-04` is specified on the comma
 input-file:
 - Microsoft.Network/2016-04-01/dns.json
 ```
- 
+
 ### Tag: package-2015-05-preview
 
 These settings apply only when `--tag=package-2015-05-preview` is specified on the command line.
@@ -53,7 +61,7 @@ input-file:
 # Code Generation
 
 
-## C# 
+## C#
 
 These settings apply only when `--csharp` is specified on the command line.
 Please also specify `--csharp-sdks-folder=<path to "SDKs" directory of your azure-sdk-for-net clone>`.
