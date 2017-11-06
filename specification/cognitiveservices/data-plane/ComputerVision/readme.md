@@ -31,6 +31,5 @@ csharp:
   output-folder: $(csharp-sdks-folder)/CognitiveServices/dataPlane/Vision/Vision/Generated/ComputerVision
   clear-output-folder: true
   add-credentials: true
-  sync-methods: none
 ```
 
