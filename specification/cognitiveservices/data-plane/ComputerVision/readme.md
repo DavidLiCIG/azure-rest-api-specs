@@ -32,4 +32,3 @@ csharp:
   clear-output-folder: true
   add-credentials: true
 ```
-
