@@ -135,5 +135,7 @@ csharp:
   namespace: Microsoft.Azure.CognitiveServices.Language.TextAnalytics
   output-folder: $(csharp-sdks-folder)/CognitiveServices/dataPlane/Language/Microsoft.CognitiveServices.Language/Generated/TextAnalytics
   clear-output-folder: true
+  add-credentials: true
+  sync-methods: none
 ```
 

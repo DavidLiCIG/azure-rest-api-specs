@@ -29,5 +29,7 @@ csharp:
   namespace: Microsoft.Azure.CognitiveServices.Vision.Face
   output-folder: $(csharp-sdks-folder)/CognitiveServices/dataPlane/Vision/Vision/Generated/Face
   clear-output-folder: true
+  add-credentials: true
+  sync-methods: none
 ```
 
